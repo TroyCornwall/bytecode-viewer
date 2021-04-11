@@ -1,8 +1,7 @@
 package the.bytecode.club.bytecodeviewer.plugin.strategies;
 
 import java.io.File;
-
-import me.konloch.kontainer.io.DiskReader;
+import java.io.FileReader;
 
 import org.codehaus.janino.SimpleCompiler;
 
@@ -38,7 +37,9 @@ public class JavaPluginLaunchStrategy implements PluginLaunchStrategy {
 
     @Override
     public Plugin run(File file) throws Throwable {
-        compiler.cook(DiskReader.loadAsString(file.getAbsolutePath()));
+        try (FileReader reader = new FileReader(file)) {
+            compiler.cook(file.getName(), reader);
+        }
 
         System.out.println(file.getName().substring(0, (int) (file.getName().length() - (".java".length()))));
         Class<?> clazz = (Class<?>) Class.forName(
