@@ -1,8 +1,16 @@
-/bin/
+#Eclipse stuff
+bin/
 .classpath
 .project
+
+#IntelliJ Stuff
 *.iml
 .idea/
 out/
-.DS_Store
+
+#Gradle Stuff
 .gradle/
+build/
+
+#macOS Stuff
+.DS_Store

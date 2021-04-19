@@ -1,7 +1,6 @@
 package the.bytecode.club.bytecodeviewer.plugin.strategies;
 
 import java.io.File;
-
 import me.konloch.kontainer.io.DiskReader;
 
 import org.codehaus.janino.SimpleCompiler;
